@@ -13,9 +13,10 @@ fpsClock = pygame.time.Clock()
 width, height = 640, 640
 screen = pygame.display.set_mode((width, height))
 maze = Maze()
-mouse = Mouse((16, 16), screen)
+
 p1 = Player(0, (0, 0), screen)
 p2 = Player(1, (16, 0), screen)
+mouse = Mouse((16, 16), p1, p2, screen)
 
 # Game loop.
 while True:
