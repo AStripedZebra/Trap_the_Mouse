@@ -5,6 +5,10 @@ class Maze:
     def __init__(self):
         self.grid_size = (16, 16)
         self.grid = []
+        self.start = self.grid[255]
+        self.target = self.grid[120]
+
+
         self.blueprint = (
             '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_',
             '_', 'W', 'W', 'W', 'W', 'W', '_', 'W', 'W', '_', 'W', 'W', 'W', 'W', 'W', '_',
@@ -25,7 +29,6 @@ class Maze:
         )
 
         n = 0
-
         for type in self.blueprint:
             element = Grid_element(n, type)
             self.grid.append(element)
@@ -51,8 +54,28 @@ class Maze:
         for element in self.grid:
             element.draw(surface)
 
-    def possible_neighbours(self, cell):
-        pass
+    def possible_neighbours(self, element):
+        neighbours = []
+        number = element.number
 
-    def generate_maze(self):
-        pass
+        if number >= 16:
+            if self.grid[number - 16].type != "W": #north
+                neighbours.append(self.grid[number - 16])
+        if number < 256:
+            if self.grid[number + 1].type != "W": #east
+                neighbours.append(self.grid[number - 16])
+        if number < 240:
+            if self.grid[number + 16].type != "W": #south
+                neighbours.append(self.grid[number - 16])
+        if number > 0:
+            if self.grid[number - 1].type != "W": #west
+                neighbours.append(self.grid[number - 16])
+
+        return neighbours
+
+    def set_start(self, start_element):
+        self.start = start_element
+
+    def reset_state(self):
+        for element in self.grid:
+            element.reset_state()
