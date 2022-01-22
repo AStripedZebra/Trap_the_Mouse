@@ -6,7 +6,7 @@ class Grid_element:
         self.y = int(number / 16)
         self.x = number % 16
         self.type = element_type
-        self.color = (0,0,0)
+        self.color = (0, 0, 0)
         if self.type == "W":
             self.color = (100, 100, 100)
 
@@ -18,6 +18,5 @@ class Grid_element:
         return self.type
 
     def draw(self, surface):
-        pixel = pygame.Rect(320 + self.x, 320 + self.y, 40, 40)
-        pixel.inflate(400,400)
+        pixel = pygame.Rect(self.x * 40, self.y * 40, 40, 40)
         pygame.draw.rect(surface, self.color, pixel)
