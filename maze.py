@@ -49,7 +49,7 @@ class Maze:
 
     def draw(self, surface):
         for element in self.grid:
-            element.draw_grid_element(surface)
+            element.draw(surface)
 
     def possible_neighbours(self, cell):
         pass
