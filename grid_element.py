@@ -46,3 +46,11 @@ class Grid_element:
 
     def direction(self, other):
         return other.x - self.x, other.y - self.y
+
+    def get_score(self, score):
+        return self.score
+
+    def set_parent(self, parent):
+        self.parent = parent
+        if parent.distance is not None:
+            self.distance = parent.distance+1

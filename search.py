@@ -9,7 +9,7 @@ class Search:
         self.maze = maze
         random.seed(datetime.now())
 
-    def a_star_search(self, position):
+    def a_star(self, position):
         self.maze.reset_state()
 
         queue = [self.maze.grid[position[0], position[1]]]
@@ -25,7 +25,7 @@ class Search:
                     for neighbour in neighbours:
                         if neighbour not in visited:
                             neighbour.set_parent(current_node)
-                            score = int(neighbour.get_distance()) + neighbour.manhattan_distance(self.graph.target)
+                            score = int(neighbour.get_distance()) + neighbour.manhattan_distance(self.maze.target)
                             if neighbour not in queue:
                                 neighbour.set_score(score)
                                 distance = neighbour.score
@@ -35,8 +35,13 @@ class Search:
                                 distance = neighbour.score
                                 queue.remove(neighbour)
                                 bisect.insort_left(queue, neighbour)
-
             else:
                 break
+
+        current_node = self.maze.target.parent
+
+        while current_node is not None and current_node != self.maze.start:
+            current_node.set_color((255, 200, 30))
+            current_node = current_node.parent
 
         print("The number of visited nodes is: {}".format(len(visited)))
