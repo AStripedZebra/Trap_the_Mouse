@@ -15,7 +15,7 @@ class Mouse:
     def move(self, x_pos, y_pos, nunchuck_input):
         pass
 
-    def draw_player(self):
+    def draw(self):
         circle_rad = 20
         draw.circle(self.screen, self.mouse_color, self.mouse_pos, circle_rad)
 
