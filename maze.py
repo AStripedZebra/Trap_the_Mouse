@@ -27,13 +27,9 @@ class Maze:
         n = 0
 
         for type in self.blueprint:
-            element = grid_element(n, type)
+            element = Grid_element(n, type)
             self.grid.append(element)
             n += 1
-
-        #for y in range(16):
-            #for x in range(16):
-                #self.grid[x] = "W"
 
     def print_maze(self):
         print(" ", end='')
@@ -51,11 +47,9 @@ class Maze:
                 if element.y != 15:
                     print("|", end='')
 
-    def draw_maze(self, surface):
-        for row in self.grid:
-            for element in row:
-                element.draw_grid_element(surface)
-        return None
+    def draw(self, surface):
+        for element in self.grid:
+            element.draw_grid_element(surface)
 
     def possible_neighbours(self, cell):
         pass
