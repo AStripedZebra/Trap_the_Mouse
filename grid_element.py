@@ -1,5 +1,4 @@
-import pygame.draw
-
+import pygame
 
 class Grid_element:
 
@@ -9,7 +8,7 @@ class Grid_element:
         self.type = element_type
         self.color = (0,0,0)
         if self.type == "W":
-            self.color = (30, 30, 30)
+            self.color = (100, 100, 100)
 
 
     def set_type(self, new_type):
@@ -19,5 +18,6 @@ class Grid_element:
         return self.type
 
     def draw(self, surface):
-        pixel = pygame.Rect(self.x, self.y, 40, 40)
-        pygame.draw.rect(surface, self.color, pygame.Rect(self.x, self.y, 40, 40))
+        pixel = pygame.Rect(320 + self.x, 320 + self.y, 40, 40)
+        pixel.inflate(400,400)
+        pygame.draw.rect(surface, self.color, pixel)
