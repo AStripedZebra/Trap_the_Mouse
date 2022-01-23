@@ -14,12 +14,13 @@ class Grid_element:
         self.parent = None
         self.distance = None
         self.score = None
+        self.position = (self.x, self.y)
 
     def set_type(self, new_type):
         self.type = new_type
 
-    def __str__(self):
-        return self.type
+    #def __str__(self):
+     #   return self.type
 
     def draw(self, surface):
         pixel = pygame.Rect(self.x * 40, self.y * 40, 40, 40)
@@ -54,3 +55,24 @@ class Grid_element:
         self.parent = parent
         if parent.distance is not None:
             self.distance = parent.distance+1
+
+    def set_color(self, new_color):
+        self.color = new_color
+
+    def get_distance(self):
+        return self.distance
+
+    def set_score(self, score):
+        self.score = score
+
+    def __eq__(self, other):
+        return self.position == other.position
+
+    def __lt__(self, other):
+        return (self.score is not None) and (other.score is None or self.score < other.score)
+
+    def __hash__(self):
+        return hash(self.position)
+
+    def __repr__(self):
+        return "[%s, %s]" % (self.position, self.score)

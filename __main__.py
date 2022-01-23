@@ -16,7 +16,7 @@ maze = Maze()
 
 p1 = Player(0, (0, 0), screen)
 p2 = Player(1, (16, 0), screen)
-mouse = Mouse((16, 16), p1, p2, screen)
+mouse = Mouse((16, 16), maze)
 
 # Game loop.
 while True:
@@ -28,6 +28,7 @@ while True:
             sys.exit()
 
     # Update.
+    mouse.new_path()
 
     # Draw.
     maze.draw(screen)

@@ -5,8 +5,6 @@ class Maze:
     def __init__(self):
         self.grid_size = (16, 16)
         self.grid = []
-        self.start = self.grid[255]
-        self.target = self.grid[120]
 
 
         self.blueprint = (
@@ -34,6 +32,12 @@ class Maze:
             self.grid.append(element)
             n += 1
 
+        self.start = self.grid[255]
+        self.target = self.grid[120]
+
+        for element in self.grid:
+            element.neighbours = self.possible_neighbours(element)
+
     def print_maze(self):
         print(" ", end='')
 
@@ -57,20 +61,18 @@ class Maze:
     def possible_neighbours(self, element):
         neighbours = []
         number = element.number
-
         if number >= 16:
             if self.grid[number - 16].type != "W": #north
                 neighbours.append(self.grid[number - 16])
-        if number < 256:
+        if number < 255:
             if self.grid[number + 1].type != "W": #east
-                neighbours.append(self.grid[number - 16])
+                neighbours.append(self.grid[number + 1])
         if number < 240:
             if self.grid[number + 16].type != "W": #south
-                neighbours.append(self.grid[number - 16])
+                neighbours.append(self.grid[number + 16])
         if number > 0:
             if self.grid[number - 1].type != "W": #west
-                neighbours.append(self.grid[number - 16])
-
+                neighbours.append(self.grid[number - 1])
         return neighbours
 
     def set_start(self, start_element):
