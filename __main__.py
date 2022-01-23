@@ -7,7 +7,7 @@ from pygame.locals import *
 
 pygame.init()
 
-fps = 60
+fps = 3
 fpsClock = pygame.time.Clock()
 
 width, height = 640, 640
@@ -16,7 +16,7 @@ maze = Maze()
 
 p1 = Player(0, (0, 0), screen)
 p2 = Player(1, (16, 0), screen)
-mouse = Mouse((16, 16), maze)
+mouse = Mouse((15, 15), maze)
 
 # Game loop.
 while True:
@@ -28,9 +28,11 @@ while True:
             sys.exit()
 
     # Update.
-    mouse.new_path()
+    #mouse.new_path()
+    mouse.move(p1, p2)
 
     # Draw.
     maze.draw(screen)
+    mouse.draw(screen)
     pygame.display.flip()
     fpsClock.tick(fps)

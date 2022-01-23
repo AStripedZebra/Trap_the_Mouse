@@ -15,6 +15,7 @@ class Grid_element:
         self.distance = None
         self.score = None
         self.position = (self.x, self.y)
+        self.safety_score = 0
 
     def set_type(self, new_type):
         self.type = new_type
