@@ -11,7 +11,11 @@ class Mouse:
         self.search = Search(maze)
 
     def move(self):
-        pass
+        if len(self.path) > 0:
+            next_move = self.path.pop()
+            print(next_move)
+        else:
+            self.new_target()
 
     def draw(self, screen):
         circle_rad = 20
@@ -19,4 +23,8 @@ class Mouse:
 
     def new_path(self):
         self.search.greedy(self.pos)
+        self.path = self.search.get_path()
+
+    def new_target(self):
+        self.maze.target = self.maze.grid[255]
 

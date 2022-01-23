@@ -33,7 +33,7 @@ class Maze:
             n += 1
 
         self.start = self.grid[255]
-        self.target = self.grid[120]
+        self.target = self.grid[8]
 
         for element in self.grid:
             element.neighbours = self.possible_neighbours(element)
@@ -64,13 +64,13 @@ class Maze:
         if number >= 16:
             if self.grid[number - 16].type != "W": #north
                 neighbours.append(self.grid[number - 16])
-        if number < 255:
+        if number % 16 < 15:
             if self.grid[number + 1].type != "W": #east
                 neighbours.append(self.grid[number + 1])
         if number < 240:
             if self.grid[number + 16].type != "W": #south
                 neighbours.append(self.grid[number + 16])
-        if number > 0:
+        if number % 16 > 0:
             if self.grid[number - 1].type != "W": #west
                 neighbours.append(self.grid[number - 1])
         return neighbours
