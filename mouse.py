@@ -14,6 +14,7 @@ class Mouse:
         if len(self.path) > 0:
             next_move = self.path.pop()
             print(next_move)
+
         else:
             self.new_target()
 
