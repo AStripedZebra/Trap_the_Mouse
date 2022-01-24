@@ -2,6 +2,7 @@ import sys
 import pygame
 import keyboard
 from player import Player
+from nunchuck_receiver import Nunchuck_receiver
 from mouse import Mouse
 from maze import Maze
 from pygame.locals import *
@@ -14,10 +15,12 @@ fpsClock = pygame.time.Clock()
 width, height = 640, 640
 screen = pygame.display.set_mode((width, height))
 maze = Maze()
+nun_rec = Nunchuck_receiver()
 
-p1 = Player(0, (0, 0), maze)
-p2 = Player(1, (15, 0), maze)
+p1 = Player(0, (0, 0), maze, nun_rec)
+p2 = Player(1, (15, 0), maze, nun_rec)
 mouse = Mouse((15, 15), maze)
+
 
 # Game loop.
 while True:
