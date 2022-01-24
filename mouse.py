@@ -14,10 +14,20 @@ class Mouse:
         self.path = []
 
     def move(self, player_1, player_2):
+        blocked = False
         for step in self.path:
-            while player_1.pos == step.position or player_2.pos == step.position:
-                self.new_target(player_1, player_2)
-                self.new_path()
+            if player_1.pos == step.position or player_2.pos == step.position:
+                blocked = True
+        while blocked:
+            print("rechecking")
+            for step in self.path:
+                if player_1.pos == step.position or player_2.pos == step.position:
+                    blocked = True
+                    self.new_target(player_1, player_2)
+                    self.new_path()
+                else:
+                    blocked = False
+
         if len(self.path) > 0:
             next_move = self.path.pop()
             self.pos = next_move.position

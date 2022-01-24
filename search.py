@@ -8,11 +8,8 @@ class Search:
         random.seed(datetime.now())
         self.maze = maze
 
-
     def bfs(self, position):
-
         self.maze.reset_state()
-
         queue = [self.maze.start]
         visited = []
 
@@ -32,7 +29,6 @@ class Search:
 
     def greedy(self, position):
         self.maze.reset_state()
-
         queue = [self.maze.start]
         visited = []
         while len(queue) > 0:
@@ -54,7 +50,6 @@ class Search:
         queue = [self.maze.start]
         visited = []
         distance = 0
-
         while len(queue) > 0:
             current_node = queue.pop(0)
             if current_node != self.maze.target:
