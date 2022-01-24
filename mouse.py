@@ -75,14 +75,19 @@ class Mouse:
         for element in self.maze.grid:
             if element.type != "W":
                 self.check_element_safety(player_1, player_2, element)
-                element.color = (255 - 5 * element.safety_score, 0, 0)
+                #element.color = (255 - 5 * element.safety_score, 0, 0)
 
         for possible_destination in self.maze.grid:
             if possible_destination.type != "W":
                 self.check_path_safety(possible_destination)
 
             total_safety_score = possible_destination.destination_safety_score + 2 * possible_destination.destination_safety_score
-            possible_destination.color = (255 - 2 * total_safety_score, 0, 0)
+            red = 255 - 2 * total_safety_score
+            if red < 0:
+                red = 0
+            elif red > 255:
+                red = 255
+            possible_destination.color = (red, 0, 0)
 
             if (total_safety_score > best_score) and (possible_destination.position != self.pos):
                 best_score = total_safety_score
@@ -102,6 +107,8 @@ class Mouse:
         dist3 = math.sqrt((element.position[0] - self.pos[0]) ** 2 + (element.position[1] - self.pos[1]) ** 2)
         paths_available = (len(element.neighbours) - 2)
         safety_score = dist1 + dist2 + (0.5 * dist3) + (10 * paths_available)
+        if dist1 == 0 or dist2 == 0:
+            safety_score -= 999
         element.safety_score = safety_score
 
     def check_path_safety(self, possible_destination):
