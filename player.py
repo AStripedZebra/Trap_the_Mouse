@@ -1,8 +1,9 @@
+from pygame import draw
+
 
 class Player:
 
-    def __init__(self, player_id, start_pos, screen):
-        self.screen = screen
+    def __init__(self, player_id, start_pos):
         self.player_id = player_id
         self.pos = start_pos
         self.color = (0, 0, 0)
@@ -15,6 +16,7 @@ class Player:
     def move(self, player_pos):
         pass
     
-    def draw_player(self):
+    def draw(self, screen):
         circle_rad = 20
-        draw.circle(self.screen, self.color, self.pos, circle_rad)
+        position = (20 + (self.pos[0] * 40), 20 + (self.pos[1] * 40))
+        draw.circle(screen, self.color, position, circle_rad)

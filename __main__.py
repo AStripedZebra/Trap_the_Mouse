@@ -14,8 +14,8 @@ width, height = 640, 640
 screen = pygame.display.set_mode((width, height))
 maze = Maze()
 
-p1 = Player(0, (0, 0), screen)
-p2 = Player(1, (16, 0), screen)
+p1 = Player(0, (0, 0))
+p2 = Player(1, (16, 0))
 mouse = Mouse((15, 15), maze)
 
 # Game loop.
@@ -34,5 +34,7 @@ while True:
     # Draw.
     maze.draw(screen)
     mouse.draw(screen)
+    p1.draw(screen)
+    p2.draw(screen)
     pygame.display.flip()
     fpsClock.tick(fps)

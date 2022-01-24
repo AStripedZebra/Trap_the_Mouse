@@ -91,7 +91,7 @@ class Search:
 
     def get_path(self):
         path = []
-        current_node = self.maze.target.parent
+        current_node = self.maze.target
 
         while current_node is not None and current_node != self.maze.start:
             path.append(current_node)
