@@ -1,25 +1,55 @@
 from pygame import draw
-from pygame import Color
+import keyboard
 
 
 class Player:
 
-    def __init__(self, player_id, start_pos, screen):
-        self.screen = screen
+    def __init__(self, player_id, start_pos, maze):
+        self.maze = maze
         self.player_id = player_id
-        self.player_pos = (start_pos[0] * 40 + 20, start_pos[1] * 40 + 20)
-        self.player_color = Color(0, 0, 0)
+        self.pos = start_pos
+        self.color = (0, 0, 0)
 
         if player_id == 0:
-            self.player_color = Color(0, 0, 255) #rgb blue
+            self.color = (0, 0, 255) #rgb
+            self.up = 'w'
+            self.down = 's'
+            self.left = 'a'
+            self.right = 'd'
         elif player_id == 1:
-            self.player_color = Color(255, 0, 0) #rgb red
+            self.color = (255, 0, 0) #rgb red
+            self.up = 'i'
+            self.down = 'k'
+            self.left = 'j'
+            self.right = 'l'
 
-    def move(self, update_val):
-        self.player_pos = (self.player_pos[0] + update_val[0]*40, self.player_pos[1] - update_val[1]*40)
-        print(self.player_pos, update_val)
+    def update(self):
+        if keyboard.is_pressed(self.up):
+            direction = (0, -1)
+        elif keyboard.is_pressed(self.left):
+            direction = (-1, 0)
+        elif keyboard.is_pressed(self.down):
+            direction = (0, 1)
+        elif keyboard.is_pressed(self.right):
+            direction = (1, 0)
+        else:
+            direction = (0, 0)
 
-    def draw(self):
+        self.move(direction)
+
+    def move(self, direction):
+        new_pos = ((self.pos[0] + direction[0]), (self.pos[1] + direction[1]))
+        if self.is_legal(new_pos):
+            self.pos = new_pos
+    
+    def draw(self, screen):
         circle_rad = 20
-        self.player_pos = (self.player_pos[0], self.player_pos[1])
-        draw.circle(self.screen, self.player_color, self.player_pos, circle_rad)
+        position = (20 + (self.pos[0] * 40), 20 + (self.pos[1] * 40))
+        draw.circle(screen, self.color, position, circle_rad)
+
+    def is_legal(self, new_pos):
+        n = (new_pos[1] * 16) + new_pos[0]
+        if self.maze.grid[n].type != "W":
+            return True
+        else:
+            return False

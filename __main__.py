@@ -8,16 +8,16 @@ from pygame.locals import *
 
 pygame.init()
 
-fps = 60
+fps = 3
 fpsClock = pygame.time.Clock()
 
 width, height = 640, 640
 screen = pygame.display.set_mode((width, height))
 maze = Maze()
 
-p1 = Player(0, (0, 0), maze, screen)
-p2 = Player(1, (15, 0), maze, screen)
-mouse = Mouse((15, 15), p1, p2, screen)
+p1 = Player(0, (0, 0), maze)
+p2 = Player(1, (15, 0), maze)
+mouse = Mouse((15, 15), maze)
 
 # Game loop.
 while True:
@@ -29,27 +29,16 @@ while True:
             sys.exit()
 
     # Update.
-    if keyboard.is_pressed('w'):
-        print('w')
-        update_val = (0, 1)
-    elif keyboard.is_pressed('a'):
-        print('a')
-        update_val = (-1, 0)
-    elif keyboard.is_pressed('s'):
-        print('s')
-        update_val = (0, -1)
-    elif keyboard.is_pressed('d'):
-        print('d')
-        update_val = (1, 0)
-    else:
-        update_val = (0, 0)
+    #mouse.new_path()
+    mouse.move(p1, p2)
+    p1.update()
+    p2.update()
 
-    p1.move(update_val)
-    p2.move(update_val)
 
     # Draw.
     maze.draw(screen)
-    p1.draw()
-    p2.draw()
+    mouse.draw(screen)
+    p1.draw(screen)
+    p2.draw(screen)
     pygame.display.flip()
     fpsClock.tick(fps)
