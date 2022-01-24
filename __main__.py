@@ -14,8 +14,8 @@ width, height = 640, 640
 screen = pygame.display.set_mode((width, height))
 maze = Maze()
 
-p1 = Player(0, (0, 0))
-p2 = Player(1, (16, 0))
+p1 = Player(0, (0, 0), maze)
+p2 = Player(1, (15, 0), maze)
 mouse = Mouse((15, 15), maze)
 
 # Game loop.
@@ -30,6 +30,9 @@ while True:
     # Update.
     #mouse.new_path()
     mouse.move(p1, p2)
+    p1.update()
+    p2.update()
+
 
     # Draw.
     maze.draw(screen)

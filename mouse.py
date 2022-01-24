@@ -20,7 +20,6 @@ class Mouse:
                 self.new_path()
         if len(self.path) > 0:
             next_move = self.path.pop()
-            print(next_move)
             self.pos = next_move.position
             self.maze.start = next_move
         else:

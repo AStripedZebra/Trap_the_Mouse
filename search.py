@@ -57,7 +57,6 @@ class Search:
 
         while len(queue) > 0:
             current_node = queue.pop(0)
-            print(current_node)
             if current_node != self.maze.target:
                 if current_node not in visited:
                     visited.append(current_node)
