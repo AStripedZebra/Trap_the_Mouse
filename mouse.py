@@ -36,13 +36,12 @@ class Mouse:
         best_score = 0
         for element in self.maze.grid:
             if element.type != "W":
-                safety_score = (len(element.neighbours) - 2)
-                dist1 = math.sqrt((player_1.pos[0] - self.pos[0]) ** 2 + (player_1.pos[1] - self.pos[1]) ** 2)
-                dist2 = math.sqrt((player_2.pos[0] - self.pos[0]) ** 2 + (player_2.pos[1] - self.pos[1]) ** 2)
+                dist1 = math.sqrt((player_1.pos[0] - element.position[0]) ** 2 + (player_1.pos[1] - element.position[1]) ** 2)
+                dist2 = math.sqrt((player_2.pos[0] - element.position[0]) ** 2 + (player_2.pos[1] - element.position[1]) ** 2)
                 dist3 = math.sqrt((element.position[0] - self.pos[0]) ** 2 + (element.position[1] - self.pos[1]) ** 2)
-                safety_score += dist1 + dist2 + dist3
+                paths_available = (len(element.neighbours) - 2)
+                safety_score = dist1 + dist2 + dist3 + 8 * paths_available
                 element.safety_score = safety_score
-
             if element.safety_score > best_score:
                 best_score = element.safety_score
                 self.maze.target = element

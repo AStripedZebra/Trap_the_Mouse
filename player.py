@@ -1,6 +1,5 @@
 from pygame import draw
 
-
 class Player:
 
     def __init__(self, player_id, start_pos):

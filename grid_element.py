@@ -7,9 +7,10 @@ class Grid_element:
         self.y = int(self.number / 16)
         self.x = self.number % 16
         self.type = element_type
-        self.color = (0, 0, 0)
         if self.type == "W":
             self.color = (100, 100, 100)
+        else:
+            self.color = (0, 0, 0)
         self.neighbours = []
         self.parent = None
         self.distance = None
@@ -34,6 +35,10 @@ class Grid_element:
         self.parent = None
         self.score = None
         self.distance = None
+        if self.type == "W":
+            self.color = (100, 100, 100)
+        else:
+            self.color = (0, 0, 0)
 
     def get_neighbours(self):
         return self.neighbours[:]
