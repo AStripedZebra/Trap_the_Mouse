@@ -7,16 +7,18 @@ class Grid_element:
         self.y = int(self.number / 16)
         self.x = self.number % 16
         self.type = element_type
-        if self.type == "W":
-            self.color = (100, 100, 100)
-        else:
-            self.color = (0, 0, 0)
         self.neighbours = []
         self.parent = None
         self.distance = None
         self.score = None
         self.position = (self.x, self.y)
         self.safety_score = 0
+        self.destination_safety_score = 0
+        if self.type == "W":
+            self.color = (100, 100, 100)
+        else:
+            self.color = (0, 0, 0)
+
 
     def set_type(self, new_type):
         self.type = new_type
@@ -35,7 +37,8 @@ class Grid_element:
         if self.type == "W":
             self.color = (100, 100, 100)
         else:
-            self.color = (0, 0, 0)
+            #self.color = (0, 0, 0)
+            pass
 
     def get_neighbours(self):
         return self.neighbours[:]
