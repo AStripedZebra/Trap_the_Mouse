@@ -74,11 +74,11 @@ class Search:
         self.draw_path(visited)
 
     def draw_path(self, visited):
-        self.maze.target.set_color((200, 50, 50))
+        #self.maze.target.set_color((200, 50, 50))
         current_node = self.maze.target.parent
 
         while current_node is not None and current_node != self.maze.start:
-            current_node.set_color((50, 50, 50))
+            #current_node.set_color((50, 50, 50))
             current_node = current_node.parent
 
         print("Visited nodes: {}".format(len(visited)))
