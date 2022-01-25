@@ -56,7 +56,7 @@ class Mouse:
                 red = 0
             elif red > 255:
                 red = 255
-            possible_destination.color = (red, 0, 0)
+            #possible_destination.color = (red, 0, 0)
 
             if (total_safety_score > best_score) and (possible_destination.position != self.pos):
                 best_score = total_safety_score
@@ -64,7 +64,7 @@ class Mouse:
         self.maze.target = self.next_pos
         print(self.maze.target.position)
         print(self.pos)
-        self.maze.target.color = (0,255,0)
+        #self.maze.target.color = (0,255,0)
 
 
     def check_element_safety(self, player_1, player_2, element):

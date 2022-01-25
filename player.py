@@ -25,7 +25,6 @@ class Player:
             self.right = 'l'
 
     def update(self):
-        self.nun_rec.request_data()
         self.direction = (0, 0)
         #Keyboard Control
         if keyboard.is_pressed(self.up):
@@ -40,25 +39,25 @@ class Player:
 
 
         #nunchuck
-        data = self.nun_rec.retrieve_data()
-        if self.player_id == 0 and data[2] == '0':
-            convert = [int(data[3]), int(data[4])]
-            #print(convert)
-            if convert[0] == 2:
-                convert[0] = -1
-            if convert[1] == 2:
-                convert[1] = -1
-            self.direction = (convert[0], -convert[1])
-        if self.player_id == 1 and data[2] == '1':
-            convert = [int(data[3]), int(data[4])]
-            #print(convert)
-            if convert[0] == 2:
-                convert[0] = -1
-            if convert[1] == 2:
-                convert[1] = -1
-            self.direction = (convert[0], -convert[1])
-
-        self.move(self.direction)
+#        data = self.nun_rec.retrieve_data()
+#        if self.player_id == 0 and data[2] == 'A':
+#            convert = [int(data[3]), int(data[4])]
+#            print("Convert: " + str(convert))
+#            if convert[0] == 2:
+#                convert[0] = -1
+#            if convert[1] == 2:
+#                convert[1] = -1
+#            self.direction = (convert[0], -convert[1])
+#        if self.player_id == 1 and data[5] == 'B':
+#            convert = [int(data[6]), int(data[7])]
+#            print("Convert: " + str(convert))
+#            if convert[0] == 2:
+#                convert[0] = -1
+#            if convert[1] == 2:
+#                convert[1] = -1
+#            self.direction = (convert[0], -convert[1])
+#        print("direction: " + str(self.direction))
+#        self.move(self.direction)
 
 
     def move(self, direction):
