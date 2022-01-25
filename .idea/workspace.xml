@@ -149,10 +149,10 @@
     </configuration>
     <list>
       <item itemvalue="Python.__main__" />
-      <item itemvalue="Python.maze" />
       <item itemvalue="Python.grid_element" />
-      <item itemvalue="Python.search" />
+      <item itemvalue="Python.maze" />
       <item itemvalue="Python.nunchuck_receiver" />
+      <item itemvalue="Python.search" />
     </list>
     <recent_temporary>
       <list>
