@@ -10,6 +10,7 @@ class Nunchuck_receiver:
         self.arduino.write(bytes('r', 'utf-8'))
 
     def retrieve_data(self):
+        self.arduino.reset_input_buffer()
         data = str(self.arduino.readline())
         print(data)
         return data
