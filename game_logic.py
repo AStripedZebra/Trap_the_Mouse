@@ -11,12 +11,11 @@ class Game_logic:
         self.game_over_bg_color = (0, 0, 255)  # rgb
         self.game_over = False
 
+    # function that checks whether a player is on top of the mouse
+    # it will return true which will mean that the game is over
     def game_is_over(self):
         if self.p1.pos == self.mouse.pos:
             self.game_over = True
         if self.p2.pos == self.mouse.pos:
             self.game_over = True
         return self.game_over
-
-    def draw_game_over_screen(self):
-        self.screen.fill((255, 255, 0))

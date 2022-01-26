@@ -38,7 +38,7 @@ class Mouse:
         draw.circle(screen, self.mouse_color, position, circle_rad) #draw a circle in the position of the mouse object in the grid
 
     def new_path(self):
-        self.search.greedy(self.pos)    #find a path using greedy search
+        self.search.greedy()    #find a path using greedy search
         self.path = self.search.get_path()  #compute the path and put it in the path list
 
     def new_target(self, player_1, player_2): #this method uses heuristics to calculate a safe destination

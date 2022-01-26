@@ -65,6 +65,3 @@ class Grid_element:
 
     def __repr__(self):
         return "[%s, %s, %s]" % (self.position, self.score, self.type)
-
-    #def __str__(self):
-     #   return self.type
