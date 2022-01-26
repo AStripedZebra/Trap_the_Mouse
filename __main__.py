@@ -52,7 +52,3 @@ while True:
 
     if game_logic.game_is_over():
         break
-
-    #Game over screen
-#while True:
-    #game_logic.draw_game_over_screen()
