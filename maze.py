@@ -1,13 +1,13 @@
 from grid_element import *
 
 class Maze:
-
+    #this class manages the maze consisting of individual element objects
     def __init__(self):
         self.grid_size = (16, 16)
         self.grid = []
 
 
-        self.blueprint = (
+        self.blueprint = (#this is the blueprint for the maze, it dictates where the walls are
             '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_',
             '_', 'W', 'W', 'W', 'W', 'W', '_', 'W', 'W', '_', 'W', 'W', 'W', 'W', 'W', '_',
             '_', 'W', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', 'W', '_',
@@ -26,19 +26,23 @@ class Maze:
             '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_',
         )
 
+        #add an element of the appropriate type for every entry in the blueprint
         n = 0
         for type in self.blueprint:
             element = Grid_element(n, type)
             self.grid.append(element)
             n += 1
 
+        #set an initial start and target for the search algoritm
         self.start = self.grid[255]
         self.target = self.grid[8]
 
         for element in self.grid:
+            #compute all neightbours for all elements in advance
             element.neighbours = self.possible_neighbours(element)
 
     def print_maze(self):
+        #this method prints the entire maze in the console for debugging purposes
         print(" ", end='')
 
         for i in range(16):
@@ -55,10 +59,12 @@ class Maze:
                     print("|", end='')
 
     def draw(self, surface):
+        #this method draws all elements of the maze on the computer screen
         for element in self.grid:
             element.draw(surface)
 
     def possible_neighbours(self, element):
+        #this method computes the possible neighbours of a given element
         neighbours = []
         number = element.number
         if number >= 16:

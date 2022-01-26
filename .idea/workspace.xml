@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37d112b1-31e5-4ea3-9d8b-f9fa60767c48" name="Changes" comment="alles werkt semi">
+    <list default="true" id="37d112b1-31e5-4ea3-9d8b-f9fa60767c48" name="Changes" comment="wat comments erbij">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid_element.py" beforeDir="false" afterPath="$PROJECT_DIR$/grid_element.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/maze.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mouse.py" beforeDir="false" afterPath="$PROJECT_DIR$/mouse.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nunchuck_receiver.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643156305270</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="wat comments erbij">
+      <created>1643158845737</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1643158845737</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -385,6 +391,7 @@
     <MESSAGE value="betere muis ai" />
     <MESSAGE value="push" />
     <MESSAGE value="alles werkt semi" />
-    <option name="LAST_COMMIT_MESSAGE" value="alles werkt semi" />
+    <MESSAGE value="wat comments erbij" />
+    <option name="LAST_COMMIT_MESSAGE" value="wat comments erbij" />
   </component>
 </project>
