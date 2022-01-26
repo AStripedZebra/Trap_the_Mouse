@@ -9,6 +9,7 @@ class Mouse:
         self.maze = maze
         self.pos = start_pos
         self.previous_targets = []
+        self.grid_number = (self.pos[1] * 16) + self.pos[0]
         self.mouse_color = Color(50, 150, 50)
         self.search = Search(maze)
         self.path = []
@@ -27,6 +28,7 @@ class Mouse:
         else:
             self.new_target(player_1, player_2)
             self.new_path()
+        self.grid_number = (self.pos[1] * 16) + self.pos[0]
 
 
     def draw(self, screen):

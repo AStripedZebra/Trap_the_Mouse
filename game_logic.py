@@ -9,7 +9,7 @@ class Game_logic:
         self.mouse = mouse
         self.screen = screen
         self.game_over_bg_color = (0, 0, 255)  # rgb
-        self.game_over = True
+        self.game_over = False
 
     def game_is_over(self):
         if self.p1.pos == self.mouse.pos:

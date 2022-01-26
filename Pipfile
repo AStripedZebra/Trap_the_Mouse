@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 pygame = "*"
 keyboard = "*"
+serial = "*"
+pyserial = "*"
+pydub = "*"
 
 [dev-packages]
 

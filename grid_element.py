@@ -56,7 +56,7 @@ class Grid_element:
 
     def set_score(self, score):
         self.score = score
-
+ 
     def __eq__(self, other):
         return self.position == other.position
 

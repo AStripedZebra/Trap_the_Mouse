@@ -2,12 +2,11 @@
 import serial
 
 
-class Nunchuck_receiver:
+class Serial_communication:
     def __init__(self):
         self.arduino = serial.Serial(port='COM7', baudrate=115200, timeout=.1)
 
-    def retrieve_data(self):
-        #self.arduino.reset_input_buffer()
+    def receive_data(self):
         data = str(self.arduino.readline())
         print("Data: " + str(data))
         return data
